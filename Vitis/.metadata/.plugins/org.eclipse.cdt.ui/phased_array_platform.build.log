@@ -1,0 +1,22 @@
+15:04:02 **** Build of project phased_array_platform ****
+buildplatform.bat 54488 phased_array_platform  
+XSDB Server Channel: tcfchan#1
+Reading the platform  : "phased_array_platform"
+Failed to generate the platform.
+Reason: Error: Qemu arguments File given  /hddisk/Xilinx/Vitis/2021.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt do not exist
+    invoked from within
+"::tcf::eval -progress {apply {{msg} {puts $msg}}} {tcf_send_command tcfchan#0 xsdb eval s es {{platform active phased_array_platform; platform generate }}}"
+    (procedure "::tcf::send_command" line 4)
+    invoked from within
+"tcf send_command $::xsdb::curchan xsdb eval s es [list "platform active $PLATFORM_NAME; platform generate $target"]"
+    invoked from within
+"if { $iswindows == 1 } {    
+
+    set XSDB_PORT [lindex $argv 0]
+    set PLATFORM_NAME [lindex $argv 1]
+    set arglen [llength $argv]
+    set lastind..."
+    (file "C:/Xilinx/Vitis/2022.1\scripts\vitis\util\buildplatform.tcl" line 11)
+
+15:04:07 Build Finished (took 5s.666ms)
+

@@ -1,0 +1,9 @@
+TRACE::2022-05-14.00:19:40::SCWBifWriter::Found the complete platform /home/dylan/workspace/phased_array_platform/export/phased_array_platform/phased_array_platform.xpfm
+TRACE::2022-05-14.00:19:40::SCWBifWriter::hardware databse : design_1_wrapper_21
+TRACE::2022-05-14.00:19:40::SCWBifWriter::bitstream found in the design
+TRACE::2022-05-14.00:19:40::SCWBifWriter::Found a baremetal domain, proc: ps7_cortexa9_0
+TRACE::2022-05-14.00:19:40::SCWBifWriter::proc type : 
+TRACE::2022-05-14.00:19:40::SCWBifWriter::proc[0] : ps7_cortexa9_0
+TRACE::2022-05-14.00:19:40::SCWBifWriter::Device type is : zynq
+TRACE::2022-05-14.00:19:40::SCWBifWriter::Writing BIF to file : /home/dylan/workspace/phased_array_system/_ide/bootimage/template_phased_array_system.bif
+TRACE::2022-05-14.00:19:40::SCWBifWriter::Writing the Zynq Baremetal bif 
