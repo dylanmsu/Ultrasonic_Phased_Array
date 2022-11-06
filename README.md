@@ -15,3 +15,7 @@ If we were to send a sinewave through the transducers with a delay determined by
 
 ## Setup
 There are two array's used in the levitation example. One is facing upwards and the other is facing downwards. They are facing eachother with a distance of 70mm. this distance is arbitrarily chosen based on the needed volume for levitation.
+
+## FPGA
+The FPGA implementation receives 7 bit values from the PS for every transducer. This value sets the phase of the output signal. This is acheived by making a fifo of length = 2^7. The 40KHz signal is fed into the fifo at 40KHz * 2^7 = 5.12MHz. The reason for this is because we want a full period of the signal in the fifo. The 7 bit value determines where the output signal is tapped from.
+Im currently cleaning up the FPGA implementation and turn it into an IP-block, i will include the files in this repository once i'm finished. 
