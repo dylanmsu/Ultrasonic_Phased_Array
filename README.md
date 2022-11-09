@@ -7,7 +7,7 @@ When we power up the system, the transducers start emitting ultrasonic sound wav
 
 ## Working principle
 Lets consider an example where we want to send a single pulse of airpressure to a certain point in space. We have an array of transducers we can work with. If we time the pulse at each transducer correctly, we can make all the waves arrive at that point simultaniously.
-Since the waves travel in a sphere around the transducer, we can use the distance from the point to each transducer in combination with the wavelength to time the pulse correctly.
+Since the waves travel in a sphere around the transducer, we can use the distance from the point to each transducer in combination with thew wavelength to time the pulse correctly.
 
 [<img src="img/gifsmos_single_focus.gif" width="250px"/>](img/gifsmos_single_focus.gif)
 
