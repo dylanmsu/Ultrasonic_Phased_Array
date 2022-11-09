@@ -12,7 +12,7 @@ Lets consider an example where we want to send a single pulse of airpressure to 
 <br>
 If we were to send a sinewave with the same delay through the transducers instead of a single pulse, all the peaks and troughs of those waves would ideally only add up in the focal point. The amplitude would then be the greatest at that point and ideally cancel out everywhere else. This is actually not always the case because a side effect of using a periodic signal is that we create te posibility of sidelobes. Sidelobes are areas where some of the sinewaves add up unwantedly. To prevent the occurance of sidelobes, we need to space the transducers with a distance between 1/2 wavelength, and 1/4 wavelength. 
 
-The waves of exiting the transducers will look something like this.
+The waves exiting the transducers will look something like this.
 <br>
 [<img src="simulation/animation.gif" width="250px"/>](img/gifsmos_single_focus.gif)
 <br>
