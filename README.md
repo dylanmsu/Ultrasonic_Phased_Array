@@ -6,11 +6,14 @@ The vitis project in this repository is to be used in a accoustic levitation exa
 When we power up the system, the transducers start emitting ultrasonic sound waves each at the same frequency (40kHz) and amplitude. However, the phases of the transducers are software controllable. This gives us full control over the beam shape and direction exiting the transducer array.
 
 ## Working principle
-Lets consider an example where we want to send a single pulse of airpressure to a certain point in space. We have an array of transducers we can work with. Since the waves travel in a sphere around the transducers, we can time the pulses at each transducer in such a way that all the wavefronts arrive at the same time in a single point. This is illustrated in the animation below.
+Lets consider an example where we want to send a single pulse of airpressure to a certain point in space. We have an array of transducers we can work with. Since the waves travel in a sphere around the transducers, we can time the pulses at each transducer in such a way that all the wavefronts arrive at the same time in a single focal point. This is illustrated in the animation below.
 <br>
 [<img src="img/gifsmos_single_focus.gif" width="250px"/>](img/gifsmos_single_focus.gif)
 <br>
-If we were to send a sinewave with the same delay through the transducers instead of a single pulse, all the peaks and troughs of those waves would ideally only add up in the focal point. The amplitude would then be the greatest at that point and ideally cancel out everywhere else. This is actually not always the case because a side effect of using a periodic signal is that we create te posibility of sidelobes. Sidelobes are areas where some of the sinewaves add up unwantedly. To prevent the occurance of sidelobes, we need to space the transducers with a distance between 1/2 wavelength, and 1/4 wavelength. 
+If we were to send a sinewave with the same delay through the transducers instead of a single pulse, all the peaks and troughs of those waves would ideally only add up in the focal point. The amplitude would then be the greatest at that point and ideally cancel out everywhere else. This is actually not always the case because a side effect of using a periodic signal is that we create te posibility of sidelobes. Sidelobes are areas where some of the sinewaves constructively add up unwantedly. To prevent the occurance of sidelobes, we need to space the transducers with a distance between 1/2 wavelength, and 1/4 wavelength. 
+<br>
+
+In the case for this project, the spacing between the sources is 10 mm wich is more than double the recommended wavelength so we expect some loss of energy through sidelobes. Even more so diagonally since the sources are placed in a rectangular grid and the diagonal spacing is 10*sqrt(2) mm. Placing the sources in a hexagonal grid solves this issue but this makes the design of the PCB more challanging. For this reason i opted to design a rectangular grid of sources.
 
 The waves exiting the transducers will look something like this.
 <br>
@@ -30,3 +33,9 @@ Im currently cleaning up the FPGA implementation and turning it into an IP-block
 
 ### Processing System
 TODO
+
+### Video
+Below is a video showing two ultrasonic arrays levitating a piece of styrofoam in an preprogrammed path.
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=-Alf5AHHJVo" target="_blank">
+ <img src="http://img.youtube.com/vi/-Alf5AHHJVo/mqdefault.jpg" alt="Watch the video" border="10" />
+</a>
