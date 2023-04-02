@@ -10,10 +10,10 @@ Lets consider an example where we want to send a single pulse of airpressure to 
 <br>
 [<img src="img/gifsmos_single_focus.gif" width="250px"/>](img/gifsmos_single_focus.gif)
 <br>
-If we were to send a sinewave with the same delay through the transducers instead of a single pulse, all the peaks and troughs of those waves would ideally only add up in the focal point. The amplitude would then be the greatest at that point and ideally cancel out everywhere else. This is actually not always the case because a side effect of using a periodic signal is that we create te posibility of sidelobes. Sidelobes are areas where some of the sinewaves constructively add up unwantedly. To prevent the occurance of sidelobes, we need to space the transducers with a distance between 1/2 wavelength, and 1/4 wavelength. 
+If we were to send a sinewave with the same delay through the transducers instead of a single pulse, all the peaks and troughs of those waves would ideally only add up in the focal point. The amplitude would then be the greatest at that point and ideally cancel out everywhere else. This is actually not always the case because a side effect of using a periodic signal is that we create te posibility of sidelobes. Sidelobes are areas where some of the sinewaves constructively add up unwantedly where the phase shift is a multiple of 360 degrees. To prevent the occurance of sidelobes, we need to space the transducers with a distance between 1/2 wavelength, and 1/4 wavelength. 
 <br>
 
-In the case for this project, the spacing between the sources is 10 mm wich is more than double the recommended wavelength so we expect some loss of energy through sidelobes. Even more so diagonally since the sources are placed in a rectangular grid and the diagonal spacing is 10*sqrt(2) mm. Placing the sources in a hexagonal grid solves this issue but this makes the design of the PCB more challanging. For this reason i opted to design a rectangular grid of sources.
+In the case for this project, the spacing between the sources is 10 mm wich is more than double the recommended wavelength so we expect some loss of energy through sidelobes. Even more so diagonally since the sources are placed in a rectangular grid and the diagonal spacing is 14.14 mm. Placing the sources in a hexagonal grid solves big diagonal spacing but this makes the design of the PCB more challanging. For this reason i opted to design a rectangular grid of sources anyway.
 
 The waves exiting the transducers will look something like this.
 <br>
