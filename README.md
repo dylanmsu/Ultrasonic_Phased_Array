@@ -31,6 +31,8 @@ The FPGA used in this project is the ZYNQ XC7Z020 on a Zybo Z7 board. It contain
 The PL contains an implementation which receives 7 bit values from the PS (Processing System) for every transducer. This value sets the phase of the output signal. This is acheived by making a fifo of length = 2^7 in the case of a phase resolution of 7 bits. The 40KHz signal is fed into the fifo at 40KHz * 2^7 = 5.12MHz. The reason for this is because we want exactly 1 full period of the signal in the fifo. The 7 bit value determines at which address of the fifo the output signal is tapped from. This way wan can adjust the phase of the output signal in 2^7 steps per period.
 Im currently cleaning up the FPGA implementation and turning it into an IP-block, i will include the files in this repository once i'm finished.
 
+
+
 ### Processing System
 TODO
 

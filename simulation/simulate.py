@@ -32,7 +32,8 @@ def update(p):
     Z = 0
     
     for i in range(len(sources)):
-        Z += np.sin(np.pi*f*(np.sqrt((X - sources[i])**2 + Y**2)/8.575 - p/10 - pos[i]))
+        R = np.sqrt((X - sources[i])**2 + Y**2)
+        Z += (300*np.sin(np.pi*f*(R/8.575 - p/10 - pos[i])))/(4*np.pi*R)
 
     ax.imshow(Z,
               cmap = cmap,
@@ -48,6 +49,6 @@ def update(p):
     ax.axis('off')
 
 ani = FuncAnimation(fig = fig, func = update, frames=60, interval = 3/8.575)
-ani.save('C:/Ultrasonic_phased_array/simulation/animation.gif', writer='imagemagick', fps=30)
+ani.save('./animation.gif', writer='imagemagick', fps=30)
 
-plt.show()
+#plt.show()

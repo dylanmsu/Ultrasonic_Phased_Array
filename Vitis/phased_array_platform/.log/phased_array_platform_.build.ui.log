@@ -1,19 +1,0 @@
-2022-10-17T20:23:30.117922400255-20:23:30 **** Build of project phased_array_platform ****
-000-buildplatform.bat -1 phased_array_platform  
-000-No connection could be made because the target machine actively refused it
-000-    while executing
-000-"error $message"
-000-    (procedure "connect" line 143)
-000-    invoked from within
-000-"connect -u TCP:localhost:$XSDB_PORT"
-000-    invoked from within
-000-"if { $iswindows == 1 } {    
-000-
-000-    set XSDB_PORT [lindex $argv 0]
-000-    set PLATFORM_NAME [lindex $argv 1]
-000-    set arglen [llength $argv]
-000-    set lastind..."
-000-    (file "C:/Xilinx/Vitis/2022.1\scripts\vitis\util\buildplatform.tcl" line 11)
-00255-
-20:23:34 Build Finished (took 4s.288ms)
-
