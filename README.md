@@ -1,5 +1,5 @@
 # Ultrasonic_Phased_Array
-This repository will contain all the sources for a working ultrasonic phased array.
+This repository is under construction and will contain all the sources for a working ultrasonic phased array.
 The vitis project in this repository is to be used in a accoustic levitation example.
 
 ## abstract
@@ -21,6 +21,8 @@ The waves exiting the transducers will look something like this.
 
 The red dots at the bottom are sources emitting pure sinusodial signals with an adjusted phase delay so all the waves are in phase at the red dot around the middle.
 
+There is also an included python script called 'wave_equation.py' that focuses the waves to your mouse location by manipulating the phases of the emitters. It solves the 2d wave equation so it should be more acurate than the above animation.
+
 ## Setup
 There are two array's used in the levitation example. One is facing upwards and the other is facing downwards. They are facing eachother with a distance of 70mm. This distance is arbitrarily chosen based on the needed volume for levitation.
 
@@ -36,7 +38,7 @@ The block diagram that takes an AXI peripheral bus and outputs a serial data str
 [<img src="Vivado\block_diagram\axi_phase_generator_to_Pmod.svg"/>]()
 
 here is an overview of the in- and output signals:
-- **signal_in**: signal to be delayed, in our case this signal would be 40KHz.
+- **signal_in**: this is the signal that will drive the transducers and whos phase will be altered, in our case this signal would have a 50% dutycycle at 40KHz.
 - **fifo_clk**: this is the clock that shifts the fifo's used for the delay generation. This should be 2^7 times faster than the 40KHz signal. in this case the fifo length and so the phase resolution is 2^7. This means a frequency of 5.12MHz.
 - **ser_clk**: this is the serial clock that drives the serializer and also the shift registers on the transducer board. This clock should be 5x the 'fifo_clock' if each shift register drives 5 transducers. This means a frequency of 25.6MHz.
 - **s00_axi_aclk**: this is the AXI peripheral clock comming directly from the Processing system.
@@ -44,6 +46,13 @@ here is an overview of the in- and output signals:
 - **resetn**: active low reset signal.
 - **S00_AXI**: AXI slave port
 - **pmod_out**: this port goes directly to a Pmod port on the FPGA-board and drives the transducer board.
+
+The AXI peripheral IP_block generates the delayed signals and outputs them as a 25 bit vector. This vector is split into 5x 5 bit vectors that enter the seializer. The data is then clocked bit by bit to the output.
+
+### Implementation
+[<img src="Vivado\block_diagram\top_level_design.svg"/>]()
+
+TODO
 
 ### Processing System
 TODO
