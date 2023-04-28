@@ -54,6 +54,9 @@ TODO
 ### Processing System
 TODO
 
+### Practical limitations
+In an ideal world the signal applied to the physical transducer should give the same signal in air pressure. That is however not the case. For every transducer there is a significant random phase shift present. This will completely negate our effort to acheive a phased array. So we have to measure the phase shift of every transducer and incorporate this into the phase calculations.
+
 ### Video
 Below is a video showing two ultrasonic arrays levitating a piece of styrofoam in an preprogrammed path.
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=-Alf5AHHJVo" target="_blank">
