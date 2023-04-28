@@ -2,9 +2,6 @@
 This repository is under construction and will contain all the sources for a working ultrasonic phased array.
 The vitis project in this repository is to be used in a accoustic levitation example.
 
-## abstract
-When we power up the system, the transducers start emitting ultrasonic sound waves each at the same frequency (40kHz) and amplitude. However, the phases of the transducers are software controllable. This gives us full control over the beam shape and direction exiting the transducer array.
-
 ## Working principle
 Lets consider an example where we want to send a single pulse of airpressure to a certain point in space. We have an array of transducers we can work with. Since the waves travel in a sphere around the transducers, we can time the pulses at each transducer in such a way that all the wavefronts arrive at the same time in a single focal point. This is illustrated in the animation below.
 
