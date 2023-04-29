@@ -9,6 +9,27 @@ Lets consider an example where we want to send a single pulse of airpressure to 
 
 If we were to send a sinewave with the same delay through the transducers instead of a single pulse, all the peaks and troughs of those waves would ideally only add up in the focal point. The amplitude would then be the greatest at that point and ideally cancel out everywhere else. This is actually not always the case because a side effect of using a periodic signal is that we create te posibility of sidelobes. Sidelobes are areas where some of the sinewaves constructively add up unwantedly where the phase shift is a multiple of 360 degrees. To prevent the occurance of sidelobes, we need to space the transducers with a distance between 1/2 wavelength, and 1/4 wavelength. 
 
+To calculate the phase offsets per transducer for a single focal point, the following formula is used:
+$$\varphi =  -\frac{2\pi\sqrt{(X_t - X_f)^2 + (Y_t - Y_f)^2 + (Z_t - Z_f)^2}}{\lambda}$$
+Where: 
+- $\varphi$ = the phase offset for a given transducer
+- $X_t, Y_t, Z_t$ = the location of the transducer
+- $X_f, Y_f, Z_f$ = the location of the focal point
+- $\lambda$ = wavelength
+
+We can also steer a beam into a specified direction. To do this we have to align the wavefronts into a plane where its normal vector points to the direction of travel. This is illustrated in the animation below. 
+
+[<img src="img/gifsmos_beam.gif" width="250px"/>]()
+
+Here the phase offsets are calculated using the following formula:
+$$\varphi = \frac{2\pi(aX_t+bY_t-Z_t)}{\lambda\sqrt{1+a^2+b^2}}$$
+Where: 
+- $\varphi$ = the phase offset for a given transducer
+- $X_t, Y_t, Z_t$ = the location of the transducer
+- $a$ = the slope of the tangent plane in the x-axis
+- $b$ = the slope of the tangent plane in the y-axis
+- $\lambda$ = wavelength
+
 
 In the case for this project, the spacing between the sources is 10 mm wich is more than double the recommended wavelength so we expect some loss of energy through sidelobes. Even more so diagonally since the sources are placed in a rectangular grid and the diagonal spacing is 14.14 mm. Placing the sources in a hexagonal grid solves big diagonal spacing but this makes the design of the PCB more challanging. For this reason i opted to design a rectangular grid of sources anyway.
 
@@ -52,7 +73,12 @@ The AXI peripheral IP_block generates the delayed signals and outputs them as a 
 TODO
 
 ### Processing System
-TODO
+The Processing system sends data to the FPGA facric which adjusts the phase offsets of the physical transducers.
+
+
+
+To calculate the phases for a beam, the following formula is used:
+
 
 ### Practical limitations
 In an ideal world the signal applied to the physical transducer should give the same signal in air pressure. That is however not the case. For every transducer there is a significant random phase shift present. This will completely negate our effort to acheive a phased array. So we have to measure the phase shift of every transducer and incorporate this into the phase calculations.
