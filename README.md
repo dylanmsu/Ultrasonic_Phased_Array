@@ -17,7 +17,15 @@ Where:
 - $X_f, Y_f, Z_f$ = the location of the focal point
 - $\lambda$ = wavelength
 
-We can also steer a beam into a specified direction. To do this we have to align the wavefronts into a plane where its normal vector points to the direction of travel. This is illustrated in the animation below. 
+The waves exiting the transducers will look something like this.
+
+[<img src="simulation/animation.gif" width="250px"/>]()
+
+The red dots at the bottom are sources emitting pure sinusodial signals with an adjusted phase delay so all the waves are in phase at the red dot around the middle.
+
+There is an included python script called 'wave_equation.py' that focuses the waves to your mouse location by manipulating the phases of the emitters. It solves the 2d wave equation so it should be more acurate than the above animation.
+
+We can also steer a beam into a specified direction. To do this we have to align the wavefronts into a plane where its normal vector points to the direction of travel. This is illustrated in 2d in the animation below. 
 
 [<img src="img/gifsmos_beam.gif" width="250px"/>]()
 
@@ -32,14 +40,6 @@ Where:
 
 
 In the case for this project, the spacing between the sources is 10 mm wich is more than double the recommended wavelength so we expect some loss of energy through sidelobes. Even more so diagonally since the sources are placed in a rectangular grid and the diagonal spacing is 14.14 mm. Placing the sources in a hexagonal grid solves big diagonal spacing but this makes the design of the PCB more challanging. For this reason i opted to design a rectangular grid of sources anyway.
-
-The waves exiting the transducers will look something like this.
-
-[<img src="simulation/animation.gif" width="250px"/>]()
-
-The red dots at the bottom are sources emitting pure sinusodial signals with an adjusted phase delay so all the waves are in phase at the red dot around the middle.
-
-There is also an included python script called 'wave_equation.py' that focuses the waves to your mouse location by manipulating the phases of the emitters. It solves the 2d wave equation so it should be more acurate than the above animation.
 
 ## Setup
 There are two array's used in the levitation example. One is facing upwards and the other is facing downwards. They are facing eachother with a distance of 70mm. This distance is arbitrarily chosen based on the needed volume for levitation.
