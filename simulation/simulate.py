@@ -22,10 +22,19 @@ plt.gca().set_axis_off()
 plt.subplots_adjust(top = 1, bottom = 0, right = 1, left = 0, hspace = 0, wspace = 0)
 plt.margins(0,0)
 
-w = 0
-h = 30
+# calculate phases for a focal point
+#w = 0
+#h = 30
+#ax.plot(N/2*(1 - w/axlim), N/2*(2-h/axlim), 'ro')
+#x = np.linspace(min(sources), max(sources), len(sources))
+#pos = np.sqrt((-w - x)**2 + h**2)/8.575
+
+# calculate phases for beamforming
 x = np.linspace(min(sources), max(sources), len(sources))
-pos = np.sqrt((-w - x)**2 + h**2)/8.575
+a = -0.04
+pos = (a*x)/(np.sqrt(1+a*a))
+a = a*10
+
 
 def update(p):
     ax.cla()
@@ -42,13 +51,15 @@ def update(p):
     for s in sources:
         ax.plot(N/2*(1 - s/axlim), N-1, 'ro')
 
-    ax.plot(N/2*(1 - w/axlim), N/2*(2-h/axlim), 'ro')
+    arrow = [1, (1/a)]
+    normal = arrow/np.linalg.norm(arrow)
+    ax.arrow(N/2, N-1, normal[0]*500, normal[1]*500, color='#ff0000', capstyle='projecting', linewidth=4, head_width=10)
 
     #ax.set_title(f'f = {40} KHz')
     ax.set_aspect('equal')
     ax.axis('off')
 
 ani = FuncAnimation(fig = fig, func = update, frames=60, interval = 3/8.575)
-ani.save('./animation.gif', writer='imagemagick', fps=30)
+ani.save('./simulation/animation_beam.gif', writer='imagemagick', fps=30)
 
 #plt.show()

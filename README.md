@@ -38,6 +38,9 @@ Where:
 - $b$ = the slope of the tangent plane in the y-axis
 - $\lambda$ = wavelength
 
+The waves exiting the transducers will look something like this.
+
+[<img src="simulation/animation_beam.gif" width="250px"/>]()
 
 In the case for this project, the spacing between the sources is 10 mm wich is more than double the recommended wavelength so we expect some loss of energy through sidelobes. Even more so diagonally since the sources are placed in a rectangular grid and the diagonal spacing is 14.14 mm. Placing the sources in a hexagonal grid solves big diagonal spacing but this makes the design of the PCB more challanging. For this reason i opted to design a rectangular grid of sources anyway.
 
