@@ -68,7 +68,7 @@ here is an overview of the in- and output signals:
 - **S00_AXI**: AXI slave port
 - **pmod_out**: this port goes directly to a Pmod port on the FPGA-board and drives the transducer board.
 
-The AXI peripheral IP_block generates the delayed signals and outputs them as a 25 bit vector. This vector is split into 5x 5 bit vectors that enter the seializer. The data is then clocked bit by bit to the output.
+The AXI peripheral IP_block generates the delayed signals and outputs them as a 25 bit vector. This vector is split into 5x 5 bit vectors by the xlslice blocks. The 5 bit vectors enter the seializer. The data is then clocked bit by bit to the output.
 
 ### Implementation
 [<img src="Vivado\block_diagram\top_level_design.svg"/>]()
@@ -77,11 +77,6 @@ TODO
 
 ### Processing System
 The Processing system sends data to the FPGA facric which adjusts the phase offsets of the physical transducers.
-
-
-
-To calculate the phases for a beam, the following formula is used:
-
 
 ### Practical limitations
 In an ideal world the signal applied to the physical transducer should give the same signal in air pressure. That is however not the case. For every transducer there is a significant random phase shift present. This will completely negate our effort to acheive a phased array. So we have to measure the phase shift of every transducer and incorporate this into the phase calculations.
